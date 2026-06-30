@@ -17,21 +17,18 @@ st.set_page_config(
 # =========================
 # LOAD MODEL
 # =========================
-import gdown
 import os
 import pickle
+import gdown
 
-if not os.path.exists("random_forest_streamlit.pkl"):
-    file_id = "ID_FILE_GOOGLE_DRIVE"
-    url = f"https://drive.google.com/file/d/1O6IIta2u2gvYnjCjj1PKBvoD41N1CCMD/view?usp=sharing"
-    gdown.download(url,
-                   "random_forest_streamlit.pkl",
-                   quiet=False)
+MODEL_FILE = "random_forest_streamlit.pkl"
 
-model = pickle.load(
-    open("random_forest_streamlit.pkl", "rb")
-)
+if not os.path.exists(MODEL_FILE):
+    file_id = "1O6IIta2u2gvYnjCjj1PKBvoD41N1CCMD"
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, MODEL_FILE, quiet=False)
 
+model = pickle.load(open(MODEL_FILE, "rb"))
 # =========================
 # SESSION STATE
 # =========================
