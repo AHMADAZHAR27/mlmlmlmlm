@@ -4,6 +4,3 @@ numpy
 scikit-learn
 joblib
 gdown
-
-.\.venv\Scripts\Activate
-streamlit run stream-smoking.py
